@@ -1,21 +1,38 @@
 {
- "languageserver": {
+  "languageserver": {
+    "rust": {
+      "command": "ra_lsp_server",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
     "haskell": {
-    "command": "hie-wrapper",
-    "rootPatterns": [
-      ".stack.yaml",
-      "cabal.config",
-      "package.yaml"
-    ],
-    "filetypes": [
-      "hs",
-      "lhs",
-      "haskell"
-    ],
-    "initializationOptions": {
-      "languageServerHaskell": {
+      "command": "hie-wrapper",
+      "rootPatterns": [
+        ".stack.yaml",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+        }
+      }
+    },
+    "dart": {
+      "command": "dart_language_server",
+      "args": [],
+      "filetypes": ["dart"],
+      "initializationOptions": {},
+      "settings": {
+        "dart": {
+          "validation": {},
+          "completion": {}
+        }
       }
     }
   }
- }
 }
