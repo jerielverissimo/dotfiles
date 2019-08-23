@@ -1,4 +1,7 @@
 {
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "diagnostic.displayByAle": true,
   "languageserver": {
     "rust": {
       "command": "ra_lsp_server",
