@@ -3,6 +3,8 @@ call plug#begin()
 " General Plugins {
   " Autocomplete
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} 
+  Plug 'tpope/vim-surround'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': './install.sh'
@@ -18,6 +20,7 @@ call plug#begin()
 
   " Fuzzy finder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'ctrlpvim/ctrlp.vim'
 
   " Window
   Plug 'vim-airline/vim-airline'
@@ -33,6 +36,7 @@ call plug#begin()
   " Git support
   Plug 'tpope/vim-fugitive'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'junegunn/gv.vim'
 " }
 
   " Languages 
