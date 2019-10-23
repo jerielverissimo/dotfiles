@@ -29,6 +29,9 @@ call plug#begin()
   " Syntaxe check and linting 
   Plug 'w0rp/ale'
   Plug 'neomake/neomake'
+  Plug 'sheerun/vim-polyglot'
+  "Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'Yggdroot/indentLine'
 
   " Easily comment - <Leader>cc
   Plug 'scrooloose/nerdcommenter'
@@ -44,6 +47,10 @@ call plug#begin()
   Plug 'neovimhaskell/haskell-vim' 
   Plug 'rust-lang/rust.vim'
   Plug 'dart-lang/dart-vim-plugin'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'mattn/emmet-vim'
+  Plug 'vim-latex/vim-latex'
+  Plug 'keith/swift.vim'
 
 call plug#end()
 
@@ -103,11 +110,14 @@ call plug#end()
 " }
 
 " Theme Options {
+
+  let g:gruvbox_material_background = 'soft'
+
   set termguicolors
   syntax enable
   set t_Co=256
   set fillchars+=vert:\|
-  colorscheme gruvbox-material-soft
+  colorscheme gruvbox-material
 
   " Airline theme
   let g:airline_theme = 'gruvbox_material'
@@ -128,8 +138,25 @@ call plug#end()
   " }
     
   " Windows {
-    map <leader>f :NERDTreeFind<CR>
-    let NERDTreeQuitOnOpen = 1 " Close nerdtree after a file is selected
+  
+    " Close nerdtree after a file is selected
+    let NERDTreeQuitOnOpen = 1
+
+    function! IsNERDTreeOpen()
+        return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+    endfunction
+
+    function! ToggleFindNerd()
+        if IsNERDTreeOpen()
+            exec ':NERDTreeToggle'
+        else
+            exec ':NERDTreeFind'
+        endif
+    endfunction
+
+    " If nerd tree is closed, find current file, if open, close it
+    nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
+    nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
   " }
 " }
 
@@ -144,6 +171,24 @@ call plug#end()
   highlight ALEErrorSign ctermbg=NONE ctermfg=red
   highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
   let g:ale_lint_delay = 800
+
+  let g:ale_rust_rls_toolchain = 'nightly'
+  let g:ale_completion_enabled = 1
+  let g:ale_rust_cargo_use_check = 1
+  let g:ale_linters = {
+            \ 'javascript': ['eslint'],
+            \ 'python': ['pyls'],
+            \ 'php': ['langserver'],
+            \ 'rust': ['rls'],
+            \ 'elixir': ['elixir-ls'],
+            \ 'c': ['clangd']
+            \}
+
+  set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
+" }
+
+" Neomake {
+  let g:neomake_warning_sign = {'text': '?'}
 " }
 
 " Coc configuration { 
