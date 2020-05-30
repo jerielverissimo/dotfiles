@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Created By Jeriel Baptista Verissimo 
+
+WIFI_LIST="$(nmcli device wifi list | tail -n +2 | awk '{print $2}' | tr '\n' ' ' | sed -e 's/ /|> /g ')"
+MENU="$(rofi -sep "|" -dmenu -i -p 'System' -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< $WIFI_LIST)"
+            case "$MENU" in
+                *Lock) i3lock-fancy ;;
+                *Logout) openbox --exit;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl -i poweroff
+            esac
+
