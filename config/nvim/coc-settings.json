@@ -1,12 +1,25 @@
 {
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["rust", "dart", "c", "cpp", "go"],
   "diagnostic.displayByAle": true,
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.updates.channel": "nightly",
+  "flutter.openDevLogSplitCommand": "botright 10split",
+  "list.source.files.excludePatterns": ["**/node_modules/*", "**/.git/*"],
+  "list.source.mru.excludePatterns": ["**/node_modules/*", "**/.git/*"],
+  "list.source.grep.excludePatterns": [
+    "**/node_modules/*",
+    "**/.git/*"
+  ],
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
   "languageserver": {
-    "rust": {
-      "command": "ra_lsp_server",
-      "filetypes": ["rust"],
-      "rootPatterns": ["Cargo.toml"]
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     },
     "haskell": {
       "command": "hie-wrapper",
@@ -24,28 +37,6 @@
         "languageServerHaskell": {
         }
       }
-    },
-    "dart": {
-      "command": "dart_language_server",
-      "args": [],
-      "filetypes": ["dart"],
-      "initializationOptions": {},
-      "settings": {
-        "dart": {
-          "validation": {},
-          "completion": {}
-        }
-      }
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"]
-    },
-     "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
     }
   }
 }
