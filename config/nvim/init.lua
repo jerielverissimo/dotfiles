@@ -3,6 +3,7 @@ require "settings"
 
 require("setup.autopairs")
 require("setup.compe")
+require("setup.diffview")
 require("setup.formatter")
 require("setup.gitsigns")
 require("setup.lspconfig")

@@ -42,6 +42,7 @@ return require("packer").startup(
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "oberblastmeister/neuron.nvim"
     use "norcalli/nvim-colorizer.lua"
+    use "sindrets/diffview.nvim"
     use {
       "hoob3rt/lualine.nvim",
       requires = {"kyazdani42/nvim-web-devicons", opt = true}
