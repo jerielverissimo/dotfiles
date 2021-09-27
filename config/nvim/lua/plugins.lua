@@ -16,7 +16,6 @@ return require("packer").startup(
     use {"kabouzeid/nvim-lspinstall", event = "BufRead"}
     use "hrsh7th/nvim-compe"
     use "ray-x/lsp_signature.nvim"
-    use "kyazdani42/nvim-tree.lua"
     use "kyazdani42/nvim-web-devicons"
     use "onsails/lspkind-nvim"
     use "simrat39/rust-tools.nvim"
@@ -43,13 +42,16 @@ return require("packer").startup(
     use "oberblastmeister/neuron.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "sindrets/diffview.nvim"
-    use {
-      "hoob3rt/lualine.nvim",
-      requires = {"kyazdani42/nvim-web-devicons", opt = true}
-    }
-
+    use "famiu/feline.nvim"
     -- Autopairs
     use "windwp/nvim-autopairs"
+    use {
+      "kyazdani42/nvim-tree.lua",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require "nvim-tree".setup {}
+      end
+    }
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
@@ -62,5 +64,6 @@ return require("packer").startup(
         "nvim-lua/plenary.nvim"
       }
     }
+    use "lewis6991/spellsitter.nvim"
   end
 )

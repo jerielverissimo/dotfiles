@@ -65,6 +65,7 @@ require("nvim-treesitter.configs").setup {
     "rust",
     "go",
     "scss",
+    "clojure",
     "css"
   }
 }

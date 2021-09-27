@@ -16,10 +16,10 @@ vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
 vim.cmd "nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>"
 vim.cmd "nnoremap <space>ca <cmd>lua vim.lsp.buf.code_action()<CR>"
 vim.api.nvim_set_keymap(
-"n",
-"gl",
-'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
-{ noremap = true, silent = true }
+  "n",
+  "gl",
+  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = "single" })<CR>',
+  {noremap = true, silent = true}
 )
 
 vim.cmd "nnoremap <silent> gp <cmd>lua require'lsp'.PeekDefinition()<CR>"
@@ -31,7 +31,6 @@ vim.cmd "nnoremap <silent> <tab> <cmd>lua vim.lsp.buf.signature_help()<CR>"
 -- scroll up hover doc
 vim.cmd 'command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()'
 
-
 vim.cmd "nnoremap <leader>p :NvimTreeToggle<CR>"
 vim.cmd "nnoremap <leader>r :NvimTreeRefresh<CR>"
 
@@ -40,13 +39,15 @@ vim.cmd "nnoremap <leader>fg <cmd>Telescope live_grep<cr>"
 vim.cmd "nnoremap <leader>fb <cmd>Telescope buffers<cr>"
 vim.cmd "nnoremap <leader>fh <cmd>Telescope help_tags<cr>"
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.js,*.rs,*.lua FormatWrite
 augroup END
-]], true)
-
+]],
+  true
+)
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -136,3 +137,5 @@ vim.cmd "nnoremap <buffer> gz] <cmd>lua require'neuron'.goto_next_extmark()<CR>"
 
 -- go to previous
 vim.cmd "nnoremap <buffer> gz[ <cmd>lua require'neuron'.goto_prev_extmark()<CR>]]"
+
+vim.cmd "au! BufRead,BufNewFile *.glsl,*.vert,*.frag set filetype=glsl"

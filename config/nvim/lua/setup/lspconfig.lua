@@ -9,6 +9,7 @@ local nvim_lsp = require "lspconfig"
 local configs = require "lspconfig/configs"
 
 require "lspconfig".solargraph.setup {}
+require "lspconfig".clojure_lsp.setup {}
 
 -- snippet support
 local capabilities = vim.lsp.protocol.make_client_capabilities()
