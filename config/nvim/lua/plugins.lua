@@ -12,9 +12,13 @@ return require("packer").startup(
   function()
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
-    use {"neovim/nvim-lspconfig"}
     use {"kabouzeid/nvim-lspinstall", event = "BufRead"}
-    use "hrsh7th/nvim-compe"
+    use {"neovim/nvim-lspconfig"}
+    use "hrsh7th/nvim-cmp" -- Autocompletion plugin
+    use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+    use "hrsh7th/cmp-buffer"
+    use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
+    use "L3MON4D3/LuaSnip" -- Snippets plugin
     use "ray-x/lsp_signature.nvim"
     use "kyazdani42/nvim-web-devicons"
     use "onsails/lspkind-nvim"
@@ -28,21 +32,18 @@ return require("packer").startup(
     use "nvim-lua/lsp-status.nvim"
     use "nvim-lua/lsp_extensions.nvim"
     use "sainnhe/gruvbox-material"
-    -- use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use "folke/which-key.nvim"
     use "hrsh7th/vim-vsnip"
     use "hrsh7th/vim-vsnip-integ"
     use "rafamadriz/friendly-snippets"
     use "mhartington/formatter.nvim"
-    -- use 'lukas-reineke/indent-blankline.nvim'
     use "Yggdroot/indentLine"
     use "nvim-treesitter/playground"
-    -- use 'jiangmiao/auto-pairs'
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
-    use "oberblastmeister/neuron.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "sindrets/diffview.nvim"
     use "famiu/feline.nvim"
+    use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
     -- Autopairs
     use "windwp/nvim-autopairs"
     use {
@@ -54,13 +55,13 @@ return require("packer").startup(
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate"
     }
-
     use {
-      "lewis6991/gitsigns.nvim",
-      requires = {
-        "nvim-lua/plenary.nvim"
-      }
+      "lewis6991/gitsigns.nvim"
     }
     use "lewis6991/spellsitter.nvim"
+    use {
+      "nvim-neorg/neorg",
+      requires = "nvim-lua/plenary.nvim"
+    }
   end
 )

@@ -1,34 +1,3 @@
-require("lspconfig").tsserver.setup {}
-require("lspconfig").clangd.setup {}
--- VimL (full circle!)
-require("lspconfig").vimls.setup {}
--- nvim_lsp object
-local lsp_status = require("lsp-status")
-lsp_status.register_progress()
-local nvim_lsp = require "lspconfig"
-local configs = require "lspconfig/configs"
-
-require "lspconfig".solargraph.setup {}
-require "lspconfig".clojure_lsp.setup {}
-
--- snippet support
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {"documentation", "detail", "additionalTextEdits"}
-}
-
--- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup {
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = {loadOutDirsFromCheck = true},
-      procMacro = {enable = true}
-    }
-  }
-}
-
 local opts = {
   tools = {
     autoSetHints = true,
@@ -46,28 +15,67 @@ local opts = {
 }
 require("rust-tools").setup(opts)
 
-require "lspconfig".html.setup {
-  capabilities = capabilities
-}
+-- require "lspconfig".html.setup {
+--   capabilities = capabilities
+-- }
 
-configs.emmet_ls = {
-  default_config = {
-    cmd = {"emmet-ls", "--stdio"},
-    filetypes = {"html", "css", "scss"},
-    root_dir = function()
-      return vim.loop.cwd()
-    end,
-    settings = {}
+-- configs.emmet_ls = {
+--   default_config = {
+--     cmd = {"emmet-ls", "--stdio"},
+--     filetypes = {"html", "css", "scss"},
+--     root_dir = function()
+--       return vim.loop.cwd()
+--     end,
+--     settings = {}
+--   }
+-- }
+
+-- nvim_lsp.emmet_ls.setup {
+--   on_attach = on_attach
+-- }
+
+require "lspconfig".dartls.setup {
+  cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = false,
+    outline = true,
+    suggestFromUnimportedLibraries = true
   }
 }
 
-nvim_lsp.emmet_ls.setup {
-  on_attach = on_attach
+local nvim_lsp = require "lspconfig"
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+-- snippet support
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {"documentation", "detail", "additionalTextEdits"}
 }
 
-require "lspconfig".crystalline.setup {}
-
-require "lspconfig".gopls.setup {}
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = {
+  "clangd",
+  "rust_analyzer",
+  "pyright",
+  "tsserver",
+  "vimls",
+  "solargraph",
+  "clojure_lsp",
+  "gopls",
+  "crystalline",
+  "dartls"
+}
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities
+  }
+end
 
 -- LSP Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =

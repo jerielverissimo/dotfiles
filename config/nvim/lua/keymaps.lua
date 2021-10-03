@@ -1,15 +1,3 @@
--- LSP
--- { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>" },
--- { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>" },
--- { "gr", "<cmd>lua vim.lsp.buf.references()<CR>" },
--- { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>" },
--- { "gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false, border = 'single' })<CR>" },
--- { "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
--- { "gp", "<cmd>lua require'lsp.peek'.Peek('definition')<CR>" },
--- { "K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
--- { "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts = {border = lvim.lsp.popup_border}})<CR>" },
--- { "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = lvim.lsp.popup_border}})<CR>" },
-
 vim.cmd "nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>"
 vim.cmd "nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>"
 vim.cmd "nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>"
@@ -55,9 +43,9 @@ end
 local map = vim.api.nvim_set_keymap
 
 -- Various key mappings.
-map("i", "<C-e>", "compe#close('<C-e>')", {silent = true, expr = true})
-map("i", "<C-f>", "compe#scroll({delta = +4})", {silent = true, expr = true})
-map("i", "<C-d>", "compe#scroll({delta = -4})", {silent = true, expr = true})
+-- map("i", "<C-e>", "compe#close('<C-e>')", {silent = true, expr = true})
+-- map("i", "<C-f>", "compe#scroll({delta = +4})", {silent = true, expr = true})
+-- map("i", "<C-d>", "compe#scroll({delta = -4})", {silent = true, expr = true})
 
 -- Use (s-)tab to:
 --- move to prev/next item in completion menu
@@ -79,7 +67,7 @@ _G.tab_complete = function()
   elseif check_back_space() then
     return t "<Tab>"
   else
-    return vim.fn["compe#complete"]()
+    return vim.fn["cmp#complete"]()
   end
 end
 
