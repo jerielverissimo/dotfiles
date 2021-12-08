@@ -13,26 +13,9 @@ local opts = {
   },
   server = {} -- rust-analyer options
 }
-require("rust-tools").setup(opts)
+require("rust-tools").setup {}
 
--- require "lspconfig".html.setup {
---   capabilities = capabilities
--- }
-
--- configs.emmet_ls = {
---   default_config = {
---     cmd = {"emmet-ls", "--stdio"},
---     filetypes = {"html", "css", "scss"},
---     root_dir = function()
---       return vim.loop.cwd()
---     end,
---     settings = {}
---   }
--- }
-
--- nvim_lsp.emmet_ls.setup {
---   on_attach = on_attach
--- }
+require'lspconfig'.bashls.setup{}
 
 require "lspconfig".dartls.setup {
   cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},

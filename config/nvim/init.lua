@@ -2,11 +2,9 @@ require "plugins"
 require "settings"
 
 require("setup.autopairs")
-require("setup.spellsitter")
 require("setup.cmp")
 require("setup.diffview")
 require("setup.formatter")
-require("setup.neorg")
 require("setup.gitsigns")
 require("setup.lspconfig")
 require("setup.lspkind")

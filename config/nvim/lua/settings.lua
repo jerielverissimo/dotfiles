@@ -2,10 +2,11 @@ local opt = vim.opt
 local g = vim.g
 
 g.mapleader = " "
+g.maplocalleader = " "
 
 -- Undo files
 opt.undofile = true
-opt.undodir = "/home/nomad/.cache"
+opt.undodir = "/Users/jeriel.verissimo/.cache"
 
 -- Identation
 opt.smartindent = true
@@ -14,6 +15,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.colorcolumn = "80"
+opt.cursorline = true
 
 -- Set clipboard to use system clipboard
 opt.clipboard = "unnamedplus"

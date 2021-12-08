@@ -1,12 +1,5 @@
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
-parser_configs.norg = {
-  install_info = {
-    url = "https://github.com/nvim-neorg/tree-sitter-norg",
-    files = {"src/parser.c", "src/scanner.cc"},
-    branch = "main"
-  }
-}
 -- nvim-treesitter
 require("nvim-treesitter.configs").setup {
   highlight = {enable = true},
@@ -54,7 +47,6 @@ require("nvim-treesitter.configs").setup {
         goto_definition_lsp_fallback = "gnd",
         -- list_definitions = "gnD",
         -- list_definitions_toc = "gO",
-        -- @TODOUA: figure out if I need the 2 below
         goto_next_usage = "<a-*>", -- is this redundant?
         goto_previous_usage = "<a-#>" -- also this one?
       }
@@ -75,7 +67,6 @@ require("nvim-treesitter.configs").setup {
     "go",
     "scss",
     "clojure",
-    "norg",
     "css"
   }
 }

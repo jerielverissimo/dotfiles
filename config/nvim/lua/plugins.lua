@@ -43,6 +43,12 @@ return require("packer").startup(
     use "norcalli/nvim-colorizer.lua"
     use "sindrets/diffview.nvim"
     use "famiu/feline.nvim"
+    use "p00f/nvim-ts-rainbow"
+    use 'Olical/conjure'
+    use 'clojure-vim/vim-jack-in'
+    use 'guns/vim-sexp'
+    use 'tpope/vim-sexp-mappings-for-regular-people'
+    use 'tpope/vim-repeat'
     use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
     -- Autopairs
     use "windwp/nvim-autopairs"
