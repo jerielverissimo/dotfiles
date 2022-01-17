@@ -16,6 +16,7 @@ local opts = {
 require("rust-tools").setup {}
 
 require'lspconfig'.bashls.setup{}
+require'lspconfig'.hls.setup{}
 
 require "lspconfig".dartls.setup {
   cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},

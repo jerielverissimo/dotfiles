@@ -1,5 +1,3 @@
-local lsp = require "feline.providers.lsp"
-
 local colors = {
   white = "#ebdbb2",
   darker_black = "#232323",
@@ -139,36 +137,28 @@ components.active[1][6] = {
 
 components.active[1][7] = {
   provider = "diagnostic_errors",
-  enabled = function()
-    return lsp.diagnostics_exist "Error"
-  end,
+  enabled = require('feline.providers.lsp').diagnostics_exist(vim.diagnostic.severity.ERROR),
   hl = {fg = colors.red},
   icon = "  "
 }
 
 components.active[1][8] = {
   provider = "diagnostic_warnings",
-  enabled = function()
-    return lsp.diagnostics_exist "Warning"
-  end,
+  enabled = require('feline.providers.lsp').diagnostics_exist(vim.diagnostic.severity.WARN),
   hl = {fg = colors.yellow},
   icon = "  "
 }
 
 components.active[1][9] = {
   provider = "diagnostic_hints",
-  enabled = function()
-    return lsp.diagnostics_exist "Hint"
-  end,
+  enabled = require('feline.providers.lsp').diagnostics_exist(vim.diagnostic.severity.HINT),
   hl = {fg = colors.grey_fg2},
   icon = "  "
 }
 
 components.active[1][10] = {
   provider = "diagnostic_info",
-  enabled = function()
-    return lsp.diagnostics_exist "Information"
-  end,
+  enabled = require('feline.providers.lsp').diagnostics_exist(vim.diagnostic.severity.INFO),
   hl = {fg = colors.green},
   icon = "  "
 }
@@ -371,7 +361,7 @@ components.inactive = {
 }
 
 require("feline").setup {
-  colors = {
+  theme = {
     bg = colors.statusline_bg,
     fg = colors.fg
   },

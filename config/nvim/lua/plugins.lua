@@ -50,6 +50,7 @@ return require("packer").startup(
     use 'tpope/vim-sexp-mappings-for-regular-people'
     use 'tpope/vim-repeat'
     use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
+    use 'tpope/vim-dispatch'
     -- Autopairs
     use "windwp/nvim-autopairs"
     use {
