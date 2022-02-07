@@ -46,3 +46,5 @@ vim.cmd [[colorscheme gruvbox-material]]
 
 -- vim.cmd[[let g:indent_blankline_char = '¦']]
 vim.o.hlsearch = false
+
+vim.g['conjure#client#clojure#nrepl#test#current_form_names'] = {'deftest', 'defflow', 'defflow-new-system!'}

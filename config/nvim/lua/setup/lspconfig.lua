@@ -15,8 +15,8 @@ local opts = {
 }
 require("rust-tools").setup {}
 
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.hls.setup{}
+require "lspconfig".bashls.setup {}
+require "lspconfig".hls.setup {}
 
 require "lspconfig".dartls.setup {
   cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},
@@ -62,34 +62,63 @@ for _, lsp in ipairs(servers) do
 end
 
 -- LSP Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] =
+--   vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics,
+--   {
+--     virtual_text = true,
+--     underline = true,
+--     signs = true,
+--     severity_sort = true,
+--     update_in_insert = false
+--   }
+-- )
+
+vim.diagnostic.config(
   {
-    virtual_text = true,
-    underline = true,
+    virtual_text = {
+      prefix = "●"
+    },
     signs = true,
-    severity_sort = true,
-    update_in_insert = false
+    underline = false,
+    update_in_insert = false,
+    severity_sort = false
   }
 )
 
-vim.fn.sign_define(
-  "LspDiagnosticsSignError",
-  {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"}
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignWarning",
-  {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"}
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignHint",
-  {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"}
-)
-vim.fn.sign_define(
-  "LspDiagnosticsSignInformation",
-  {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
-)
+local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+end
+
+function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+  bufnr = bufnr or 0
+  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+  opts = opts or {["lnum"] = line_nr}
+
+  local line_diagnostics = vim.diagnostic.get(bufnr, opts)
+  if vim.tbl_isempty(line_diagnostics) then
+    return
+  end
+
+  local diagnostic_message = ""
+  for i, diagnostic in ipairs(line_diagnostics) do
+    diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+    print(diagnostic_message)
+    if i ~= #line_diagnostics then
+      diagnostic_message = diagnostic_message .. "\n"
+    end
+  end
+  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
+end
+
+-- vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
+
+-- You will likely want to reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
 -- symbols for autocomplete
 vim.lsp.protocol.CompletionItemKind = {

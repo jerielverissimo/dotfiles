@@ -94,36 +94,12 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- map("i", "<CR>", "v:lua.OnEnter()", {expr = true, noremap = true})
 
--- Notes
-
--- click enter on [[my_link]] or [[[my_link]]] to enter it
-vim.cmd "nnoremap <buffer> <CR> <cmd>lua require'neuron'.enter_link()<CR>"
-
--- create a new note
-vim.cmd "nnoremap <buffer> gzn <cmd>lua require'neuron/cmd'.new_edit(require'neuron'.config.neuron_dir)<CR>"
-
--- find your notes, click enter to create the note if there are not notes that match
-vim.cmd "nnoremap <buffer> gzz <cmd>lua require'neuron/telescope'.find_zettels()<CR>"
-
--- insert the id of the note that is found
-vim.cmd "nnoremap <buffer> gzZ <cmd>lua require'neuron/telescope'.find_zettels {insert = true}<CR>"
-
--- find the backlinks of the current note all the note that link this note
-vim.cmd "nnoremap <buffer> gzb <cmd>lua require'neuron/telescope'.find_backlinks()<CR>"
-
--- same as above but insert the found id
-vim.cmd "nnoremap <buffer> gzB <cmd>lua require'neuron/telescope'.find_backlinks {insert = true}<CR>"
-
--- find all tags and insert
-vim.cmd "nnoremap <buffer> gzt <cmd>lua require'neuron/telescope'.find_tags()<CR>"
-
--- start the neuron server and render markdown, auto reload on save
-vim.cmd "nnoremap <buffer> gzs <cmd>lua require'neuron'.rib {address = '127.0.0.1:8200', verbose = true}<CR>"
-
--- go to next [[my_link]] or [[[my_link]]]
-vim.cmd "nnoremap <buffer> gz] <cmd>lua require'neuron'.goto_next_extmark()<CR>"
-
--- go to previous
-vim.cmd "nnoremap <buffer> gz[ <cmd>lua require'neuron'.goto_prev_extmark()<CR>]]"
-
 vim.cmd "au! BufRead,BufNewFile *.glsl,*.vert,*.frag set filetype=glsl"
+
+-- Trouble
+vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})

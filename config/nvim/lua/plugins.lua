@@ -44,13 +44,13 @@ return require("packer").startup(
     use "sindrets/diffview.nvim"
     use "famiu/feline.nvim"
     use "p00f/nvim-ts-rainbow"
-    use 'Olical/conjure'
-    use 'clojure-vim/vim-jack-in'
-    use 'guns/vim-sexp'
-    use 'tpope/vim-sexp-mappings-for-regular-people'
-    use 'tpope/vim-repeat'
+    use "Olical/conjure"
+    use "clojure-vim/vim-jack-in"
+    use "guns/vim-sexp"
+    use "tpope/vim-sexp-mappings-for-regular-people"
+    use "tpope/vim-repeat"
     use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
-    use 'tpope/vim-dispatch'
+    use "tpope/vim-dispatch"
     -- Autopairs
     use "windwp/nvim-autopairs"
     use {
@@ -69,6 +69,17 @@ return require("packer").startup(
     use {
       "nvim-neorg/neorg",
       requires = "nvim-lua/plenary.nvim"
+    }
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim"
+    }
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {}
+      end
     }
   end
 )

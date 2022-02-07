@@ -61,7 +61,6 @@ require("nvim-treesitter.configs").setup {
     "html",
     "json",
     "yaml",
-    "swift",
     "ruby",
     "rust",
     "go",
