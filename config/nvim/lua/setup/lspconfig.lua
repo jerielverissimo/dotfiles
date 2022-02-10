@@ -149,4 +149,3 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (TypeParameter)"
 }
 
-vim.lsp.diagnostic.show_line_diagnostics()
