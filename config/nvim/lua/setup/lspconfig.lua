@@ -17,17 +17,18 @@ require("rust-tools").setup {}
 
 require "lspconfig".bashls.setup {}
 require "lspconfig".hls.setup {}
+require "lspconfig".emmet_ls.setup {}
 
-require "lspconfig".dartls.setup {
-  cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},
-  init_options = {
-    closingLabels = true,
-    flutterOutline = true,
-    onlyAnalyzeProjectsWithOpenFiles = false,
-    outline = true,
-    suggestFromUnimportedLibraries = true
-  }
-}
+-- require "lspconfig".dartls.setup {
+--   cmd = {"dart", "/opt/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"},
+--   init_options = {
+--     closingLabels = true,
+--     flutterOutline = true,
+--     onlyAnalyzeProjectsWithOpenFiles = false,
+--     outline = true,
+--     suggestFromUnimportedLibraries = true
+--   }
+-- }
 
 local nvim_lsp = require "lspconfig"
 
@@ -51,8 +52,8 @@ local servers = {
   "solargraph",
   "clojure_lsp",
   "gopls",
-  "crystalline",
-  "dartls"
+  "crystalline"
+  -- "dartls"
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -149,3 +150,4 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (TypeParameter)"
 }
 
+vim.diagnostic.open_float()

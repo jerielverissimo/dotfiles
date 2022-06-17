@@ -27,6 +27,8 @@ vim.cmd "nnoremap <leader>fg <cmd>Telescope live_grep<cr>"
 vim.cmd "nnoremap <leader>fb <cmd>Telescope buffers<cr>"
 vim.cmd "nnoremap <leader>fh <cmd>Telescope help_tags<cr>"
 
+vim.cmd "au BufWritePost <buffer> lua require('lint').try_lint()"
+
 vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
@@ -103,3 +105,7 @@ vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr
 vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
+
+-- LSP
+vim.api.nvim_set_keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", {silent = true, noremap = true})
+-- vim .cmd "autocmd BufWritePost *.clj silent call vim.lsp.buf.formatting()"

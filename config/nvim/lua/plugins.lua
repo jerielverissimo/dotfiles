@@ -13,11 +13,14 @@ return require("packer").startup(
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
     use {"kabouzeid/nvim-lspinstall", event = "BufRead"}
+    use "mfussenegger/nvim-lint"
     use {"neovim/nvim-lspconfig"}
     use "hrsh7th/nvim-cmp" -- Autocompletion plugin
     use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
     use "hrsh7th/cmp-buffer"
+    use "f3fora/cmp-spell"
     use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
+    use "PaterJason/cmp-conjure"
     use "L3MON4D3/LuaSnip" -- Snippets plugin
     use "ray-x/lsp_signature.nvim"
     use "kyazdani42/nvim-web-devicons"
@@ -49,7 +52,8 @@ return require("packer").startup(
     use "guns/vim-sexp"
     use "tpope/vim-sexp-mappings-for-regular-people"
     use "tpope/vim-repeat"
-    use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
+    -- use {"akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim"}
+    use {"neoclide/coc.nvim", branch = "release"}
     use "tpope/vim-dispatch"
     -- Autopairs
     use "windwp/nvim-autopairs"
@@ -73,6 +77,10 @@ return require("packer").startup(
     use {
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim"
+    }
+    use {
+      "SmiteshP/nvim-gps",
+      requires = "nvim-treesitter/nvim-treesitter"
     }
     use {
       "folke/trouble.nvim",
