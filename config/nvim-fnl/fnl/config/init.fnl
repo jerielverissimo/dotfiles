@@ -169,7 +169,7 @@
        :cursorline true
        ;persistent undo
        :undofile true
-       :undodir  "/home/nomad/.cache"
+       :undodir  "/Users/jeriel.verissimo/.cache"
        ;open new horizontal panes on down pane
        :splitbelow true
        ;open new vertical panes on right pane

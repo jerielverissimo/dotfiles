@@ -5,11 +5,11 @@
 
 (gitsigns.setup
  {:signs
-  {:add          {:hl :GitSignsAdd    :text  "+" :numhl :GitSignsAddNr    :linehl :GitSignsAddLn}
-   :change       {:hl :GitSignsChange :text "~" :numhl :GitSignsChangeNr :linehl :GitSignsChangeLn}
-   :delete       {:hl :GitSignsDelete :text "_" :numhl :GitSignsDeleteNr :linehl :GitSignsDeleteLn}
-   :topdelete    {:hl :GitSignsDelete :text "‾" :numhl :GitSignsDeleteNr :linehl :GitSignsDeleteLn}
-   :changedelete {:hl :GitSignsChange :text  "~" :numhl :GitSignsChangeNr :linehl :GitSignsChangeLn}}
+  {:add          {:hl :GitSignsAdd    :text  "+"  :linehl :GitSignsAddLn}
+   :change       {:hl :GitSignsChange :text "~"   :linehl :GitSignsChangeLn}
+   :delete       {:hl :GitSignsDelete :text "_"   :linehl :GitSignsDeleteLn}
+   :topdelete    {:hl :GitSignsDelete :text "‾"   :linehl :GitSignsDeleteLn}
+   :changedelete {:hl :GitSignsChange :text  "~"  :linehl :GitSignsChangeLn}}
 
   :sign_priority 6
 

@@ -252,7 +252,7 @@
 ;; Line limit for stripping ANSI escape sequences from text appended to the log
 ;; `0` to use ANSI escape sequence highlight plugin to display colours in the log
 ;; Default: `100`
-(set nvim.g.conjure#log#strip_ansi_escape_sequences_line_limit 0)
+;; (set nvim.g.conjure#log#strip_ansi_escape_sequences_line_limit 0)
 
 ;; Enable line wrapping in the HUD and log.
 ;; Default: `false`
@@ -434,14 +434,14 @@
 
 ;; List of keywords used to decide if current root form is a test to run
 ;; Default: `["deftest"]`
-;; (set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest"])
+(set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defflow-new-system!"])
 
 ;; Test runner called from the test key mappings
 ;; * `"clojure"`
 ;; * `"clojurescript" (cljs.test instead of clojure.test)`
 ;; * `"kaocha"`
 ;; Default: `"clojure"`
-(set nvim.g.conjure#client#clojure#nrepl#test#runner "kaocha")
+;; (set nvim.g.conjure#client#clojure#nrepl#test#runner "kaocha")
 
 ;; Print raw test evaluation result, suppressing prefix for stdout lines `; (out)`
 ;; Default: `true`
@@ -556,7 +556,7 @@
 ;; Default: `true`
 ;; (set nvim.g.conjure#client#clojure#nrepl#completion#cljs#use_suitable true)
 
-;; Extract the root form surrounding the cursor as you type,
+;(misc/unnamespaced order-item); Extract the root form surrounding the cursor as you type,
 ;; providingt local context aware completions (such as local let block items).
 ;; Potential huge performance hit on slower machines in large buffers with lots of top level forms.
 ;; Default: `false`

@@ -87,7 +87,7 @@
   ;; Gruvbox contrast options to try: :soft :medium :hard
   ;; {:background :light :gruvbox-contrast-light :soft}
   ;; :morhetz/gruvbox {:mod :theme}
-
+  :sainnhe/gruvbox-material {:mod theme :background :dark}
   ;; Light theme - may require plugin/theme.fnl or smilar to work
   ;; :ingram1107/vim-zhi {}
 
