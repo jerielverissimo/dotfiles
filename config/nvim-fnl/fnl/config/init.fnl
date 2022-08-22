@@ -5,6 +5,8 @@
              str aniseed.string}})
 
 
+(set nvim.colorscheme gruvbox-material)
+
 ;; --------------------
 ;; Key bindings (mappings)
 
@@ -169,7 +171,7 @@
        :cursorline true
        ;persistent undo
        :undofile true
-       :undodir  "/Users/jeriel.verissimo/.cache"
+       :undodir  "/home/nomad/.cache"
        ;open new horizontal panes on down pane
        :splitbelow true
        ;open new vertical panes on right pane
