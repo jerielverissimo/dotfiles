@@ -15,7 +15,11 @@
   (vim.fn.sign_define info  {:text "" :texthl info})
   (vim.fn.sign_define hint  {:text "" :texthl hint})))
 
-(define-signs "Diagnostic")
+;; LSP naming changed between neovim 0.6 and 0.7 onward
+(if (= (nvim.fn.has "nvim-0.6") 1)
+  (define-signs "Diagnostic")
+  (define-signs "LspDiagnostics"))
+
 
 ;; Configure server features
 (let [handlers {"textDocument/publishDiagnostics"
@@ -62,5 +66,27 @@
   ;; Clang LSP Server setup
   (lsp.clangd.setup      {:on_attach on_attach
                           :handlers handlers
-                          :capabilities capabilities}))
+                          :capabilities capabilities})
+
+  ;; JavaScript and TypeScript
+  (lsp.tsserver.setup {:on_attach on_attach
+                       :handlers handlers
+                       :capabilities capabilities})
+
+  ;; html / css / json
+
+  (lsp.cssls.setup {:on_attach on_attach
+                    :handlers handlers
+                    :capabilities capabilities
+                    :cmd ["vscode-css-languageserver" "--stdio"]})
+
+  (lsp.html.setup {:on_attach on_attach
+                   :handlers handlers
+                   :capabilities capabilities
+                   :cmd ["vscode-html-languageserver" "--stdio"]})
+
+  (lsp.jsonls.setup {:on_attach on_attach
+                     :handlers handlers
+                     :capabilities capabilities
+                     :cmd ["vscode-json-languageserver" "--stdio"]}))
 
