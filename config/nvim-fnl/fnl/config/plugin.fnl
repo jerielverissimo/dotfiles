@@ -113,13 +113,6 @@
   {:tag :release
    :mod :gitsigns}
 
-  ;; GitHub Issues and Pull Requests
-  :pwntester/octo.nvim
-  {:requires [:nvim-lua/plenary.nvim
-              :nvim-telescope/telescope.nvim
-              :kyazdani42/nvim-web-devicons]
-   :mod :octo}
-
   ;; magit style
   :TimUntersberger/neogit
   {:requires [:nvim-lua/plenary.nvim

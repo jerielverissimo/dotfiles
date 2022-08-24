@@ -178,8 +178,8 @@
        :splitright true
        ;enable highlighting search
        :hlsearch false
-       ;makes signcolumn always one column with signs and linenumber
-       :signcolumn "number"}]
+       ;; Width of gutter (number + sign columns)
+       :numberwidth 3}]
   (each [option value (pairs options)]
     (util.set-global-option option value)))
 
