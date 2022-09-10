@@ -70,9 +70,11 @@
   ;; :ingram1107/vim-zhi {}
 
   ;;;; status line
- :nvim-lualine/lualine.nvim
- {:requires [:kyazdani42/nvim-web-devicons]
-  :mod :lualine}
+  :nvim-lualine/lualine.nvim
+  {:requires [:kyazdani42/nvim-web-devicons]
+   :mod :lualine}
+
+  :Yggdroot/indentLine {}
 
   ;;;; Navigation
 
@@ -127,52 +129,52 @@
   :mg979/vim-visual-multi {}
 
 
-  ;; ----------------------
-  ;; Markdown 
-  :ixru/nvim-markdown {}
+;; ----------------------
+;; Markdown 
+:ixru/nvim-markdown {}
 
-  ;; ---------------------
-  ;; LISP related features
+;; ---------------------
+;; LISP related features
 
-  ;; repl tools
-  :clojure-vim/clojure.vim {}
-  :clojure-vim/vim-jack-in {}
-  :Olical/conjure {:mod :conjure}
+;; repl tools
+:clojure-vim/clojure.vim {}
+:clojure-vim/vim-jack-in {}
+:Olical/conjure {:mod :conjure}
 
-  ;; sexp and vim-style editing
-  :guns/vim-sexp {:mod :sexp}
-  :windwp/nvim-autopairs {:mod :autopairs}
+;; sexp and vim-style editing
+:guns/vim-sexp {:mod :sexp}
+:windwp/nvim-autopairs {:mod :autopairs}
 
-  :tpope/vim-abolish {}
-  ;; :tpope/vim-commentary {}
-  :terrortylor/nvim-comment {:mod :nvim-comment}
+:tpope/vim-abolish {}
+;; :tpope/vim-commentary {}
+:terrortylor/nvim-comment {:mod :nvim-comment}
 
-  ;; Database Client :DB
-  :tpope/vim-dadbod {}
-  :tpope/vim-dispatch {}
-  :tpope/vim-fugitive {:mod :fugitive}
-  :tpope/vim-repeat {}
-  :tpope/vim-sexp-mappings-for-regular-people {}
-  :tpope/vim-sleuth {}
-  :tpope/vim-surround {}
-  :tpope/vim-unimpaired {}
+;; Database Client :DB
+:tpope/vim-dadbod {}
+:tpope/vim-dispatch {}
+:tpope/vim-fugitive {:mod :fugitive}
+:tpope/vim-repeat {}
+:tpope/vim-sexp-mappings-for-regular-people {}
+:tpope/vim-sleuth {}
+:tpope/vim-surround {}
+:tpope/vim-unimpaired {}
 
-  :simrat39/rust-tools.nvim {:mod rust}
+:simrat39/rust-tools.nvim {:mod rust}
 
-  ;; parsing system
-  :nvim-treesitter/nvim-treesitter
-  {:run ":TSUpdate"
-   :mod :treesitter}
+;; parsing system
+:nvim-treesitter/nvim-treesitter
+{:run ":TSUpdate"
+ :mod :treesitter}
 
-  ;; lsp
-  :neovim/nvim-lspconfig {:mod :lspconfig}
+;; lsp
+:neovim/nvim-lspconfig {:mod :lspconfig}
 
-  ; snippets
-  :L3MON4D3/LuaSnip {:requires [:saadparwaiz1/cmp_luasnip]}
+; snippets
+:L3MON4D3/LuaSnip {:requires [:saadparwaiz1/cmp_luasnip]}
 
-  ;; autocomplete
-  :hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
-                                :hrsh7th/cmp-nvim-lsp
-                                :PaterJason/cmp-conjure]
-                     :mod :cmp}
+;; autocomplete
+:hrsh7th/nvim-cmp {:requires [:hrsh7th/cmp-buffer
+                              :hrsh7th/cmp-nvim-lsp
+                              :PaterJason/cmp-conjure]
+                   :mod :cmp}
 :p00f/nvim-ts-rainbow {})
