@@ -137,7 +137,7 @@
   ;; repl tools
   :clojure-vim/clojure.vim {}
   :clojure-vim/vim-jack-in {}
- :Olical/conjure {:mod :conjure}
+  :Olical/conjure {:mod :conjure}
 
   ;; sexp and vim-style editing
   :guns/vim-sexp {:mod :sexp}
@@ -157,6 +157,7 @@
   :tpope/vim-surround {}
   :tpope/vim-unimpaired {}
 
+  :simrat39/rust-tools.nvim {:mod rust}
 
   ;; parsing system
   :nvim-treesitter/nvim-treesitter

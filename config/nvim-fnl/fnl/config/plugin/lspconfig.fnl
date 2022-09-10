@@ -48,7 +48,7 @@
                     (nvim.buf_set_keymap bufnr :n :<leader>ln "<cmd>lua vim.lsp.buf.rename()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>le "<cmd>lua vim.diagnostic.open_float()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lq "<cmd>lua vim.diagnostic.setloclist()<CR>" {:noremap true})
-                    (nvim.buf_set_keymap bufnr :n :<leader>lf "<cmd>lua vim.lsp.buf.format { async = true}<CR>" {:noremap true})
+                    (nvim.buf_set_keymap bufnr :n :<leader>lf "<cmd>lua vim.lsp.buf.formatting()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lj "<cmd>lua vim.diagnostic.goto_next()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>lk "<cmd>lua vim.diagnostic.goto_prev()<CR>" {:noremap true})
                     (nvim.buf_set_keymap bufnr :n :<leader>la "<cmd>lua vim.lsp.buf.code_action()<CR>" {:noremap true})
@@ -88,5 +88,10 @@
   (lsp.jsonls.setup {:on_attach on_attach
                      :handlers handlers
                      :capabilities capabilities
-                     :cmd ["vscode-json-languageserver" "--stdio"]}))
+                     :cmd ["vscode-json-languageserver" "--stdio"]})
+  
+  (lsp.rust_analyzer.setup {:on_attach on_attach
+                            :handlers handlers
+                            :capabilities capabilities}))
+
 

@@ -32,6 +32,7 @@
     :terminal {:a {:fg (. colors :fg1) :bg (. colors :color8) :gui :bold}}
     :visual   {:a {:fg (. colors :fg1) :bg (. colors :color9) :gui :bold}}))
 
+
 (lualine.setup
   {:options {:theme gruvbox-material-theme
              :icons_enabled true
