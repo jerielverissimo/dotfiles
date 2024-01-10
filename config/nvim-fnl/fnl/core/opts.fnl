@@ -50,7 +50,15 @@
        ;makes signcolumn always one column with signs and linenumber
        ;;:signcolumn "number"
        :laststatus 3
-       :numberwidth 3}]
+       :numberwidth 3
+       :conceallevel 2
+       :concealcursor :nc
+       :fillchars (str.join "," ["vert:│"
+                                      "diff:╱"
+                                      "foldclose:"
+                                      "foldopen:"
+                                      "fold: "
+                                      "msgsep:─"])}]
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
