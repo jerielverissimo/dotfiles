@@ -14,7 +14,9 @@
               :python :conjure.client.python.stdio
               :sql :conjure.client.sql.stdio}
   :init (fn []
-          (set nvim.g.conjure#mapping#doc_word "K")
-          (set nvim.g.conjure#client#clojure#nrepl#eval#auto_require false)
-          (set nvim.g.conjure#client#clojure#nrepl#connection#auto_repl#enabled false)
+          (set nvim.g.conjure#eval#result_register :e)
+          (set nvim.g.conjure#mapping#log_buf :lo)
+          (set nvim.g.conjure#mapping#doc_word :K)
+          (set nvim.g.conjure#extract#tree_sitter#enabled true)
+          (set nvim.g.conjure#client#clojure#nrepl#test#raw_out true)
           (set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defspec"]))}]

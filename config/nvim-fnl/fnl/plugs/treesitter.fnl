@@ -44,4 +44,5 @@
                                                       :yaml
                                                       :rust
                                                       :go
-                                                      :query]})))}]
+                                                      :query
+                                                      :dart]})))}]
