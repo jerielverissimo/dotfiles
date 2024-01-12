@@ -12,6 +12,9 @@ local function _3_()
   local telescope = require("telescope")
   local themes = require("telescope.themes")
   telescope.setup({defaults = {color_devicons = true, file_ignore_patterns = {"node_modules"}, vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--iglob", "!.git", "--hidden"}}, extensions = {["ui-select"] = {themes.get_dropdown({})}}, pickers = {find_files = {find_command = {"rg", "--files", "--iglob", "!.git", "--hidden"}}}})
-  return telescope.load_extension("ui-select")
+  telescope.load_extension("ui-select")
+  telescope.load_extension("project")
+  telescope.load_extension("file_browser")
+  return telescope.load_extension("telescope-tabs")
 end
-return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}, init = _2_, config = _3_}}
+return {{"nvim-telescope/telescope.nvim", dependencies = {"nvim-telescope/telescope-ui-select.nvim", "nvim-telescope/telescope-ui-select.nvim", "nvim-telescope/telescope-file-browser.nvim", "nvim-telescope/telescope-media-files.nvim", "nvim-telescope/telescope-project.nvim", "LukasPietzschmann/telescope-tabs", "jvgrootveld/telescope-zoxide", "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"}, init = _2_, config = _3_}}

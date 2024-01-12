@@ -3,8 +3,14 @@
 
 [{1 :nvim-telescope/telescope.nvim
     :dependencies [:nvim-telescope/telescope-ui-select.nvim
-                    :nvim-lua/popup.nvim
-                    :nvim-lua/plenary.nvim]
+                   :nvim-telescope/telescope-ui-select.nvim
+                   :nvim-telescope/telescope-file-browser.nvim
+                   :nvim-telescope/telescope-media-files.nvim
+                   :nvim-telescope/telescope-project.nvim
+                   :LukasPietzschmann/telescope-tabs
+                   :jvgrootveld/telescope-zoxide
+                   :nvim-lua/popup.nvim
+                   :nvim-lua/plenary.nvim]
     :init (fn []
             (nvim.set_keymap :n :<leader>ff ":lua require('telescope.builtin').find_files()<CR>" {:noremap true})
             (nvim.set_keymap :n :<leader>fg ":lua require('telescope.builtin').live_grep()<CR>" {:noremap true})
@@ -31,4 +37,7 @@
                                                                        "--iglob"
                                                                        "!.git"
                                                                        "--hidden"]}}})
-                (telescope.load_extension "ui-select")))}]
+                (telescope.load_extension :ui-select)
+                (telescope.load_extension :project)
+                (telescope.load_extension :file_browser)
+                (telescope.load_extension :telescope-tabs)))}]

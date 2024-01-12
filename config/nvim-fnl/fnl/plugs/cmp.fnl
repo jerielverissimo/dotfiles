@@ -1,9 +1,9 @@
 (local cmp-src-menu-items
-  {:buffer "buff"
-   :conjure "conj"
+  {:buffer   "buff"
+   :conjure  "conj"
    :nvim_lsp "lsp"
-   :vsnip "vsnp"
-   :luasnip "lsnp"})
+   :vsnip    "vsnp"
+   :luasnip  "lsnp"})
 
 (local cmp-srcs
   [{:name :nvim_lsp}
@@ -21,6 +21,7 @@
   :dependencies [:hrsh7th/cmp-buffer
                  :hrsh7th/cmp-nvim-lsp
                  :hrsh7th/cmp-vsnip
+                 :hrsh7th/cmp-path
                  :PaterJason/cmp-conjure
                  :L3MON4D3/LuaSnip
                  :saadparwaiz1/cmp_luasnip]
