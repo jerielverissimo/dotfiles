@@ -9,7 +9,7 @@
        {:encoding      "utf-8"
        :spelllang      "en_us"
        :backspace      "2"
-       :colorcolumn    "80"
+       :colorcolumn    "100"
        :errorbells     true
        :backup         false
        :swapfile       false
