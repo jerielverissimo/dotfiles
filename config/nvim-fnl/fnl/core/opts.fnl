@@ -1,8 +1,8 @@
-(local {: autoload} (require :nfnl.module))
+(local {: autoload} (require :core.module))
 
-(local str (autoload :nfnl.string))
-(local nvim (autoload :nvim))
-(local core (autoload :nfnl.core))
+(local {: assoc} (autoload :core.lib))
+
+(local str (autoload :core.lib.string))
 
 ;sets a nvim global options
 (let [options
@@ -20,7 +20,7 @@
        ;show           line and column number
        :ruler          true
        ;settings       needed for compe autocompletion
-       :completeopt    "menuone,noselect"
+       :completeopt    "menu,menuone,noselect"
        ;turn           on the wild menu, auto complete for commands in command line
        :wildmenu       true
        :wildignore     "*/tmp/*,*.so,*.swp,*.zip"
@@ -55,5 +55,4 @@
        :concealcursor  :nc
        :fillchars      (str.join "," ["vert:│" "diff:╱" "foldclose:" "foldopen:" "fold: " "msgsep:─"])}]
   (each [option value (pairs options)]
-    (core.assoc nvim.o option value)))
-
+    (assoc vim.o option value)))

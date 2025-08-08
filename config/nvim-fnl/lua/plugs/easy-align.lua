@@ -1,9 +1,8 @@
--- [nfnl] Compiled from fnl/plugs/easy-align.fnl by https://github.com/Olical/nfnl, do not edit.
-local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
-local nvim = autoload("nvim")
-local function _2_()
-  nvim.set_keymap("x", "<leader>ea", "<Plug>(EasyAlign)", {})
-  return nvim.set_keymap("n", "<leader>ea", "<Plug>(EasyAlign)", {})
+local function _1_()
+  vim.api.nvim_set_keymap("x", "<leader>ea", "<Plug>(EasyAlign)", {})
+  vim.api.nvim_set_keymap("n", "<leader>ea", "<Plug>(EasyAlign)", {})
+  vim.api.nvim_set_keymap("n", "={", "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
+  vim.api.nvim_set_keymap("n", "=[", "vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
+  return vim.api.nvim_set_keymap("n", "=(", "vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
 end
-return {{"junegunn/vim-easy-align", init = _2_, lazy = false}}
+return {{"junegunn/vim-easy-align", init = _1_, lazy = false}}

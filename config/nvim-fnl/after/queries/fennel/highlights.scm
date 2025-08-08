@@ -7,8 +7,8 @@
  (#set! priority 150))
 
 ;; Lambdas
-(["lambda" "λ"] @keyword.function @conceal
-  (#set! conceal "λ"))
+; (["lambda" "λ"] @keyword.function @conceal
+;   (#set! conceal "λ"))
 
 ((symbol) @keyword.function @conceal
  (#any-of? @keyword.function
@@ -16,8 +16,8 @@
  (#set! conceal "λ"))
 
 ;; Functions
-(("fn") @keyword.function @conceal
-  (#set! conceal ""))
+; (("fn") @keyword.function @conceal
+;   (#set! conceal ""))
 
 ((symbol) @keyword.function @conceal
  (#any-of? @keyword.function

@@ -1,4 +1,5 @@
--- [nfnl] Compiled from fnl/core/init.fnl by https://github.com/Olical/nfnl, do not edit.
-require("core.au")
+local _local_1_ = require("core.module")
+local autoload = _local_1_["autoload"]
 require("core.opts")
-return require("core.cmds")
+require("core.modeline")
+return require("core.au")

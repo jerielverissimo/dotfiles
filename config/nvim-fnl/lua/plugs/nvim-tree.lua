@@ -1,5 +1,4 @@
--- [nfnl] Compiled from fnl/plugs/nvim-tree.fnl by https://github.com/Olical/nfnl, do not edit.
-local _local_1_ = require("nfnl.module")
+local _local_1_ = require("core.module")
 local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local function _2_()
@@ -20,10 +19,9 @@ local function _2_()
   return tree.setup({on_attach = on_attach, sort_by = "case_sensitive", view = {adaptive_size = true}, renderer = {group_empty = true, indent_markers = {enable = false}, icons = {git_placement = "after", glyphs = {bookmark = "\239\145\186", folder = {default = "\239\132\148", open = "\239\132\149"}}, webdev_colors = false}}, filters = {custom = {"^\\.git$"}}})
 end
 local function _4_()
-  nvim.ex.hi("NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
-  nvim.set_keymap("n", "<leader>tt", ":NvimTreeToggle<CR>", {noremap = true})
-  nvim.set_keymap("n", "<leader>tf", ":NvimTreeFocus<CR>", {noremap = true})
-  nvim.set_keymap("n", "<leader>tc", ":NvimTreeCollapse<CR>", {noremap = true})
-  return nvim.set_keymap("n", "<leader>tr", ":NvimTreeFindFile<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("n", "<leader>tt", ":NvimTreeToggle<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("n", "<leader>tf", ":NvimTreeFocus<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("n", "<leader>tc", ":NvimTreeCollapse<CR>", {noremap = true})
+  return vim.api.nvim_set_keymap("n", "<leader>tr", ":NvimTreeFindFile<CR>", {noremap = true})
 end
-return {{"nvim-tree/nvim-tree.lua", branch = "master", config = _2_, init = _4_}}
+return {{"nvim-tree/nvim-tree.lua", branch = "master", dependencies = {"nvim-tree/nvim-web-devicons"}, config = _2_, init = _4_}}
