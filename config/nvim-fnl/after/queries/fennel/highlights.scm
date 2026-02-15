@@ -17,12 +17,12 @@
 
 ;; Functions
 ; (("fn") @keyword.function @conceal
-;   (#set! conceal ""))
+;   (#set! conceal "󰊕"))
 
 ((symbol) @keyword.function @conceal
  (#any-of? @keyword.function
   "fn")
- (#set! conceal ""))
+ (#set! conceal "󰊕"))
 
 ;; Hash Functions
 ((symbol) @keyword.function @conceal

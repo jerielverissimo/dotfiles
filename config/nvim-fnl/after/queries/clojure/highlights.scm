@@ -5,7 +5,7 @@
  .
  (sym_lit) @_keyword.function
  (#any-of? @_keyword.function "defn" "defn-")
- (#set! conceal ""))
+ (#set! conceal "󰊕"))
 
 (list_lit
  .

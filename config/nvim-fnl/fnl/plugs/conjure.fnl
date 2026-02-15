@@ -1,3 +1,6 @@
+(local {: autoload} (require :nfnl.module))
+(local nvim (autoload :nvim))
+
 [{1 :Olical/conjure
   :branch "master"
   :filetypes [:clojure :fennel :janet :racket :scheme :lua :lisp :python :sql]
@@ -11,9 +14,9 @@
               :python :conjure.client.python.stdio
               :sql :conjure.client.sql.stdio}
   :init (fn []
-          (set vim.g.conjure#eval#result_register :e)
-          (set vim.g.conjure#mapping#log_buf :lo)
-          (set vim.g.conjure#mapping#doc_word :K)
-          (set vim.g.conjure#extract#tree_sitter#enabled true)
-          (set vim.g.conjure#client#clojure#nrepl#test#raw_out true)
-          (set vim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defspec"]))}]
+          (set nvim.g.conjure#eval#result_register :e)
+          (set nvim.g.conjure#mapping#log_buf :lo)
+          (set nvim.g.conjure#mapping#doc_word :K)
+          (set nvim.g.conjure#extract#tree_sitter#enabled true)
+          (set nvim.g.conjure#client#clojure#nrepl#test#raw_out true)
+          (set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defspec" "defflow-i18n"]))}]

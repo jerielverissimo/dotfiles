@@ -1,9 +1,8 @@
-(local {: autoload} (require :core.module))
+(local {: autoload} (require :nfnl.module))
 (local nvim (autoload :nvim))
 
 [{1 :nvim-tree/nvim-tree.lua
   :branch "master"
-  :dependencies [:nvim-tree/nvim-web-devicons]
   :config (fn []
             (let [tree (require :nvim-tree)
                   on-attach (fn on-attach [bufnr]
@@ -30,7 +29,8 @@
                  :filters {:custom ["^\\.git$"]}}
                 )))
   :init (fn []
-          (vim.api.nvim_set_keymap :n :<leader>tt ":NvimTreeToggle<CR>" {:noremap true})
-          (vim.api.nvim_set_keymap :n :<leader>tf ":NvimTreeFocus<CR>" {:noremap true})
-          (vim.api.nvim_set_keymap :n :<leader>tc ":NvimTreeCollapse<CR>" {:noremap true})
-          (vim.api.nvim_set_keymap :n :<leader>tr ":NvimTreeFindFile<CR>" {:noremap true}))}]
+          (nvim.ex.hi "NvimTreeSpecialFile ctermfg=7 guifg=#c6c6c6")
+          (nvim.set_keymap :n :<leader>tt ":NvimTreeToggle<CR>" {:noremap true})
+          (nvim.set_keymap :n :<leader>tf ":NvimTreeFocus<CR>" {:noremap true})
+          (nvim.set_keymap :n :<leader>tc ":NvimTreeCollapse<CR>" {:noremap true})
+          (nvim.set_keymap :n :<leader>tr ":NvimTreeFindFile<CR>" {:noremap true}))}]

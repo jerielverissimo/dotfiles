@@ -1,5 +1,4 @@
-(local {: autoload} (require :core.module))
-(require :core.opts)
-(require :core.modeline)
 (require :core.au)
-
+(require :core.opts)
+(require :core.cmds)
+(require :core.maps)

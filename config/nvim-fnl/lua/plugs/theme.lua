@@ -1,11 +1,10 @@
--- [nfnl] Compiled from fnl/plugs/theme.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/theme.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local function _2_()
-  local theme = require("kanagawa")
+  local theme = require("tasogare")
   local _ = require("hls.stl")
-  theme.setup({theme = "dragon", background = {dark = "dragon"}})
-  return vim.cmd("colorscheme kanagawa")
+  return vim.cmd("colorscheme tasogare")
 end
-return {{"rebelot/kanagawa.nvim", priority = 1000, dependencies = {"nvim-tree/nvim-web-devicons"}, config = _2_, lazy = false}}
+return {{"F4LCn/tasogare.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}, config = _2_}}

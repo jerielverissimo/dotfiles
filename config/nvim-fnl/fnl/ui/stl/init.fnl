@@ -2,7 +2,7 @@
   (let [mode (require :ui.stl.modules.mode)
 	     filename (require :ui.stl.modules.filename)
 	     branch (require :ui.stl.modules.branch)
-	     diff (require :ui.stl.modules.diff)
+	     ; diff (require :ui.stl.modules.diff)
 	     folder (require :ui.stl.modules.folder)
 	     position (require :ui.stl.modules.position)
 	     diagnostics (require :ui.stl.modules.diagnostics)
@@ -10,7 +10,7 @@
     (table.concat [(mode STYLE)
 		   (filename STYLE)
 		   (branch)
-		   (diff STYLE)
+		   ; (diff STYLE)
 		   "%="
 		   (diagnostics STYLE)
 ;;		   (folder STYLE)

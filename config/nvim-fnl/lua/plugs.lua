@@ -1,1 +1,14 @@
-return {{"rktjmp/hotpot.nvim"}}
+return {
+  {
+    "folke/lazy.nvim",
+    version = "*"
+  },
+  {
+    "Olical/nfnl",
+    ft = "fennel",
+    dependencies = { "norcalli/nvim.lua" },
+    init = function()
+      require("core")
+    end,
+  },
+}
