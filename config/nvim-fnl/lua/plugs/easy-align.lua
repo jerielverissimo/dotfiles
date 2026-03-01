@@ -4,6 +4,9 @@ local autoload = _local_1_["autoload"]
 local nvim = autoload("nvim")
 local function _2_()
   nvim.set_keymap("x", "<leader>ea", "<Plug>(EasyAlign)", {})
-  return nvim.set_keymap("n", "<leader>ea", "<Plug>(EasyAlign)", {})
+  nvim.set_keymap("n", "<leader>ea", "<Plug>(EasyAlign)", {})
+  nvim.set_keymap("n", "={", "vi{<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
+  nvim.set_keymap("n", "=[", "vi[<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
+  return nvim.set_keymap("n", "=(", "vi(<C-v>$:EasyAlign\\ g/^\\S/<CR>", {})
 end
 return {{"junegunn/vim-easy-align", init = _2_, lazy = false}}

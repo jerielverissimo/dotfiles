@@ -19,4 +19,4 @@
           (set nvim.g.conjure#mapping#doc_word :K)
           (set nvim.g.conjure#extract#tree_sitter#enabled true)
           (set nvim.g.conjure#client#clojure#nrepl#test#raw_out true)
-          (set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defspec"]))}]
+          (set nvim.g.conjure#client#clojure#nrepl#test#current_form_names ["deftest" "defflow" "defspec" "defflow-i18n"]))}]

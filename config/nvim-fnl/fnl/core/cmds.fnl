@@ -22,3 +22,7 @@
 (vim.api.nvim_create_user_command :Scratch scratch {})
 
 (vim.cmd "autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)")
+
+(vim.cmd ":hi statusline guibg=NONE")
+(vim.cmd ":hi lualine_c_inactive guibg=NONE")
+(vim.cmd ":hi lualine_c_normal guibg=NONE")

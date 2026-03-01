@@ -3,6 +3,10 @@
     :lazy false
     :dependencies [:nvim-treesitter/playground
                    :nvim-treesitter/nvim-treesitter-textobjects]
+    :opts (fn [_ opts]
+        (when (= (type opts.ensure_installed) :table)
+          (vim.list_extend opts.ensure_installed [:markdown])
+          (vim.treesitter.language.register :markdown :mdx)))
     :config (fn []
               (let [treesitter (require :nvim-treesitter.configs)]
                 (treesitter.setup {:highlight {:enable true :use_languagetree true}

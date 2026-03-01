@@ -28,3 +28,16 @@
                        (vim.lsp.buf.format)
                        (lua "return "))
                      (lua "return "))))})	
+
+(local clojure-group (vim.api.nvim_create_augroup :clojureFiles {:clear true}))
+(vim.api.nvim_create_autocmd :BufWinEnter
+                             {:command "silent! set filetype=clojure"
+                              :group clojure-group
+                              :pattern [:*.clj :*.cljs :*.edn :*.edn.base]})	
+
+
+(local json-group (vim.api.nvim_create_augroup :jsonFiles {:clear true}))
+(vim.api.nvim_create_autocmd :BufWinEnter
+                             {:command "silent! set filetype=json"
+                              :group json-group
+                              :pattern [:*.json.base]})	

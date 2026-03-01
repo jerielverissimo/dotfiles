@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/core/cmds.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/core/cmds.fnl
 local function scratch()
   local bufnr = vim.api.nvim_create_buf(true, true)
   vim.api.nvim_buf_set_name(bufnr, "*scratch*")
@@ -10,4 +10,7 @@ local function scratch()
   return vim.api.nvim_win_set_cursor(0, {5, 0})
 end
 vim.api.nvim_create_user_command("Scratch", scratch, {})
-return vim.cmd("autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)")
+vim.cmd("autocmd BufNewFile conjure-log-* lua vim.diagnostic.disable(0)")
+vim.cmd(":hi statusline guibg=NONE")
+vim.cmd(":hi lualine_c_inactive guibg=NONE")
+return vim.cmd(":hi lualine_c_normal guibg=NONE")

@@ -8,6 +8,7 @@
 (let [options
        {:encoding      "utf-8"
        :spelllang      "en_us"
+       :spell          true
        :backspace      "2"
        :colorcolumn    "100"
        :errorbells     true
@@ -57,3 +58,4 @@
   (each [option value (pairs options)]
     (core.assoc nvim.o option value)))
 
+(vim.filetype.add {:extension {:mdx :mdx}})	
