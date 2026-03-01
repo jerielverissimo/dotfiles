@@ -1,0 +1,17 @@
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required =  true
+[alias]
+  s = !git status -s
+  l = !git log 
+  d = diff
+[diff]
+  external = difft
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[init]
+	defaultBranch = main
