@@ -5,8 +5,8 @@
   required =  true
 [alias]
   s = !git status -s
-  l = !git log 
-  d = diff
+  l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+  d = diff 
 [diff]
   external = difft
 [color]
