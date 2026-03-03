@@ -1,0 +1,4 @@
+-- [nfnl] fnl/core/lib/shared.fnl
+local icons = {error = "\239\153\151 ", warn = "\238\169\172 ", info = "\239\159\188 ", hint = "\239\160\181 ", ok = "\239\152\171 "}
+local codicons = {Text = " \238\170\147 ", Method = " \238\170\140 ", Function = " \238\170\140 ", Constructor = " \238\170\140 ", Field = " \238\173\159 ", Variable = " \238\170\136 ", Class = " \238\173\155 ", Interface = " \238\173\161 ", Module = " \238\170\139 ", Property = " \238\173\165 ", Unit = " \238\170\150 ", Value = " \238\170\149 ", Enum = " \238\170\149 ", Keyword = " \238\173\162 ", Snippet = " \238\173\166 ", Color = " \238\173\156 ", File = " \238\169\187 ", Reference = " \238\170\148 ", Folder = " \238\170\131 ", EnumMember = " \238\170\149 ", Constant = " \238\173\157 ", Struct = " \238\170\145 ", Event = " \238\170\134 ", Operator = " \238\173\164 ", Copilot = " \239\132\147 ", TypeParameter = " \238\170\146 "}
+return {icons = icons, codicons = codicons}

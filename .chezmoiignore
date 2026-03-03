@@ -1,0 +1,8 @@
+# Symlink targets — managed by chezmoi but not deployed directly
+nvim/
+
+# Plugin directories managed by plugin managers
+.config/nvim/pack/
+
+# Contains sensitive info (work email); manage manually
+.gitconfig
