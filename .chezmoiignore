@@ -6,3 +6,7 @@ nvim/
 
 # Contains sensitive info (work email); manage manually
 .gitconfig
+
+# Nubank-specific agents — not for public repos
+.claude/agents/christian-performance-reviewer.md
+.claude/agents/jira-story-writer.md
