@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugs/comment.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/comment.fnl
 local function _1_()
   local c = require("Comment")
   return c.setup({})

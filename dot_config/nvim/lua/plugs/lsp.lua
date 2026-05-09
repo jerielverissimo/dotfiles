@@ -11,6 +11,10 @@ local function _1_()
   before_init = _2_
   local on_attach
   local function _3_(client, bufnr)
+    if (client and client.server_capabilities and client.server_capabilities.colorProvider) then
+      vim.lsp.document_color.enable(true, bufnr)
+    else
+    end
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true})
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true})
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ld", "<Cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true})
@@ -30,7 +34,7 @@ local function _1_()
   end
   on_attach = _3_
   vim.lsp.config("*", {on_attach = on_attach, handlers = handlers, before_init = before_init})
-  local function _4_(bufnr, on_dir)
+  local function _5_(bufnr, on_dir)
     local pattern = vim.api.nvim_buf_get_name(bufnr)
     local util = require("lspconfig.util")
     local fallback = vim.loop.cwd()
@@ -38,9 +42,11 @@ local function _1_()
     local root = util.root_pattern(patterns)(pattern)
     return on_dir((root or fallback))
   end
-  vim.lsp.config("clojure_lsp", {root_dir = _4_})
+  vim.lsp.config("clojure_lsp", {root_dir = _5_})
   vim.lsp.enable("clojure_lsp")
   vim.lsp.enable("fennel_ls")
-  return flutter_tools.setup({lsp = {color = {enable = true}, on_attach = on_attach}})
+  vim.lsp.enable("ols")
+  vim.lsp.enable("clangd")
+  return flutter_tools.setup({lsp = {on_attach = on_attach}})
 end
-return {{config = _1_, "neovim/nvim-lspconfig"}}
+return {{"neovim/nvim-lspconfig", config = _1_}}

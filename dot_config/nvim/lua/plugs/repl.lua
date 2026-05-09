@@ -2,4 +2,4 @@
 local function _1_()
   return require("fennel-repl")
 end
-return {{config = _1_, "gpanders/fennel-repl.nvim"}}
+return {{"gpanders/fennel-repl.nvim", config = _1_}}

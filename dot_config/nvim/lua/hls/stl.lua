@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/hls/stl.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/hls/stl.fnl
 local colors = {background = "#1D1C19", foreground = "#ded9bc", cursorline = "#16161d", comment = "#54546D", darker = "#0d0d11", cursor = "#ded9bc", black = "#1D1C19", color0 = "#1D1C19", color1 = "#c4746e", color2 = "#8a9a7b", color3 = "#f0965f", color4 = "#7a8382", color5 = "#8992a7", color6 = "#7FB4CA", color7 = "#d7d2b5", color8 = "#1D1C19", color9 = "#c4746e", color10 = "#87a987", color11 = "#df8f5e", color12 = "#7a96cd", color13 = "#a292a3", color14 = "#70aac2", color15 = "#d1ccb1"}
 local function hex_to_rgb(c)
   c = string.lower(c)

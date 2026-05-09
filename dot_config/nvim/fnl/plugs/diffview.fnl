@@ -13,8 +13,8 @@
                      :tree_options {:flatten_dirs true
                                     :folder_statuses :only_folded}
                      :win_config {:position :left :width 35}}
-        :file_history_panel {:log_options {:single_file {:diff_merges :combined}
-                                           :multi_file {:diff_merges :first-parent}}
+        :file_history_panel {:log_options {:git {:single_file {:diff_merges :combined}
+                                                 :multi_file {:diff_merges :first-parent}}}
                              :win_config {:position :bottom :height 16}}
         :commit_log_panel {:win_config {}}
         :default_args {:DiffviewOpen {} :DiffviewFileHistory {}}

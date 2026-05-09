@@ -1,6 +1,6 @@
--- [nfnl] Compiled from fnl/plugs/easy-align.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/easy-align.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local function _2_()
   nvim.set_keymap("x", "<leader>ea", "<Plug>(EasyAlign)", {})

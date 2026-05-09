@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/core/cfg.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/core/cfg.fnl
 local M = {}
 M.statusstyle = "fancy"
 return M

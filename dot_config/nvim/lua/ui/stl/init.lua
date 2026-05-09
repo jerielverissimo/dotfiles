@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/ui/stl/init.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/ui/stl/init.fnl
 local function run(STYLE)
   local mode = require("ui.stl.modules.mode")
   local filename = require("ui.stl.modules.filename")

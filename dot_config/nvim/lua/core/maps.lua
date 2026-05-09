@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/core/maps.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/core/maps.fnl
 local opts = {noremap = true, silent = true}
 vim.keymap.set("n", "<A-j>", ":MoveLine(1)<CR>", opts)
 vim.keymap.set("n", "<A-k>", ":MoveLine(-1)<CR>", opts)

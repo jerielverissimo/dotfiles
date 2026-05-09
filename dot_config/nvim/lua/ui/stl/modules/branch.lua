@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/ui/stl/modules/branch.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/ui/stl/modules/branch.fnl
 local function M()
   if (not vim.b.gitsigns_head or vim.b.gitsigns_git_status) then
     return ""

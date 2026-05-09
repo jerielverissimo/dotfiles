@@ -1,52 +1,21 @@
 [{1 :nvim-treesitter/nvim-treesitter
     :build ":TSUpdate"
     :lazy false
-    :dependencies [:nvim-treesitter/playground
-                   :nvim-treesitter/nvim-treesitter-textobjects]
-    :opts (fn [_ opts]
-        (when (= (type opts.ensure_installed) :table)
-          (vim.list_extend opts.ensure_installed [:markdown])
-          (vim.treesitter.language.register :markdown :mdx)))
-    :config (fn []
-              (let [treesitter (require :nvim-treesitter.configs)]
-                (treesitter.setup {:highlight {:enable true :use_languagetree true}
-                                  :indent {:enable true}
-                                  :sync_install true
-                                  :context_commentstring {:enable true}
-                                  :refactor {:enable true
-                                  :keymaps {:smart_rename :<localleader>rn}}
-                                  :query_linter {:enable true
-                                  :use_virtual_text true
-                                  :lint_events [:BufWrite :CursorHold]}
-                                  :textobjects {:select {:enable true}
-                                  :lookahead true
-                                  :keymaps {:af "@function.outer"
-                                  :if "@function.inner"
-                                  :ac "@class.outer"
-                                  :ic "@class.inner"}
-                                  :move {:enable true
-                                  :set_jumps true
-                                  :goto_next_start {"]m" "@function.outer"
-                                  "]]" "@class.outer"}
-                                  :goto_next_end {"]M" "@function.outer"
-                                  "][" "@class.outer"}
-                                  :goto_previous_start {"[m" "@function.outer"
-                                  "[[" "@class.outer"}
-                                  :goto_previous_end {"[M" "@function.outer"
-                                  "[]" "@class.outer"}}}
-                                  :ensure_installed [:bash
-                                                      :clojure
-                                                      :commonlisp
-                                                      :dockerfile
-                                                      :fennel
-                                                      :html
-                                                      :java
-                                                      :javascript
-                                                      :json
-                                                      :lua
-                                                      :markdown
-                                                      :yaml
-                                                      :rust
-                                                      :go
-                                                      :query
-                                                      :dart]})))}]
+    :dependencies [:nvim-treesitter/nvim-treesitter-textobjects]
+    :config
+    (fn []
+      (let [parsers [:lua :fennel :vim :vimdoc :query
+                     :javascript :typescript :html :css
+                     :json :yaml :toml :markdown :markdown_inline
+                     :bash :python :rust :go :c]]
+        ;; Install parsers via nvim-treesitter
+        (let [install (require :nvim-treesitter.install)]
+          (set install.ensure_installed parsers))
+        ;; Enable native treesitter highlighting and indentation
+        (vim.api.nvim_create_autocmd
+          :FileType
+          {:callback
+           (fn [args]
+             (pcall (fn []
+                      (vim.treesitter.start args.buf)
+                      (set vim.bo.indentexpr "v:lua.require'nvim-treesitter'.indentexpr()"))))})))}]

@@ -1,2 +1,2 @@
--- [nfnl] Compiled from fnl/plugs/rust-tools.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/rust-tools.fnl
 return {{"simrat39/rust-tools.nvim"}}

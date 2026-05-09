@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/ui/stl/modules/diagnostics.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/ui/stl/modules/diagnostics.fnl
 local diagnostic = vim.diagnostic
 local function M(m)
   local errors = #diagnostic.get(0, {severity = diagnostic.severity.ERROR})

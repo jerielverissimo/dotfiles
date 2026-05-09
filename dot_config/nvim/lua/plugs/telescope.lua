@@ -1,6 +1,6 @@
--- [nfnl] Compiled from fnl/plugs/telescope.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/telescope.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local nvim = autoload("nvim")
 local function _2_()
   nvim.set_keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>", {noremap = true})

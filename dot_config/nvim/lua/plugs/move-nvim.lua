@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugs/move-nvim.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/move-nvim.fnl
 local function _1_()
   local m = require("move")
   return m.setup({})

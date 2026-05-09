@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/plugs/todo-comments.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/todo-comments.fnl
 local function _1_()
   local todo = require("todo-comments")
   return todo.setup({})

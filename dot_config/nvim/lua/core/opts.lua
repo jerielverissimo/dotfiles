@@ -1,6 +1,6 @@
 -- [nfnl] fnl/core/opts.fnl
 local _local_1_ = require("nfnl.module")
-local autoload = _local_1_["autoload"]
+local autoload = _local_1_.autoload
 local str = autoload("nfnl.string")
 local nvim = autoload("nvim")
 local core = autoload("nfnl.core")

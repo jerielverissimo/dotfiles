@@ -1,2 +1,2 @@
--- [nfnl] Compiled from fnl/plugs/flutter-tools.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/plugs/flutter-tools.fnl
 return {{"akinsho/flutter-tools.nvim"}}

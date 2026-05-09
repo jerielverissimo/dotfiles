@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/ui/stl/modules/folder.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/ui/stl/modules/folder.fnl
 local ___fn___ = vim.fn
 local function M(m)
   if (m == "minimal") then

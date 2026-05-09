@@ -1,4 +1,4 @@
--- [nfnl] Compiled from fnl/ui/stl/modules/lsp.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] fnl/ui/stl/modules/lsp.fnl
 local function M(m)
   for _, client in ipairs(vim.lsp.get_active_clients()) do
     if client.attached_buffers[vim.api.nvim_get_current_buf()] then
