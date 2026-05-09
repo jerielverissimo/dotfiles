@@ -4,6 +4,12 @@ nvim/
 # Plugin directories managed by plugin managers
 .config/nvim/pack/
 
+# nfnl-generated Lua — sources live in fnl/, regenerated locally on save
+.config/nvim/lua/core/
+.config/nvim/lua/hls/
+.config/nvim/lua/plugs/
+.config/nvim/lua/ui/
+
 # Contains sensitive info (work email); manage manually
 .gitconfig
 

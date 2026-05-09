@@ -1,0 +1,5 @@
+# nfnl-generated Lua — sources live in fnl/, regenerated locally on save
+dot_config/nvim/lua/core/
+dot_config/nvim/lua/hls/
+dot_config/nvim/lua/plugs/
+dot_config/nvim/lua/ui/
